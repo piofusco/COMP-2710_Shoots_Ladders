@@ -5,8 +5,11 @@ Simple shoots and ladders game written in C++. Reads in a map board from file an
 
 Goals:
 • To develop a maze application that use graph representation
+
 • To learn the use of pointers and dynamic memory allocations
+
 • To learn about how to manipulate graph data structures
+
 • To perform Object-Oriented Analysis, Design, and Testing
 
 The graph abstraction is an important one since it is used in many different areas of computer sciences and software engineering. For instance, the Internet makes use of graphs representing the Internet router network configuration in order to determine the best route for forwarding packets from the source at one end of the Internet to the destination at the other end. Once a graph is constructed to represent the Internet configuration accurately, then the router executes an algorithm to determine the shortest path from each node to each destination and stores the information in its routing table.
