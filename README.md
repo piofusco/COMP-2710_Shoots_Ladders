@@ -4,6 +4,7 @@ COMP-2710ShootsLadders
 Simple shoots and ladders game written in C++. Reads in a map board from file and the game begins. Here is the description:
 
 Goals:
+
 • To develop a maze application that use graph representation
 
 • To learn the use of pointers and dynamic memory allocations
