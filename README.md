@@ -1,4 +1,4 @@
-COMP-2710_Shoots_Ladders
+COMP-2710ShootsLadders
 ========================
 
 Simple shoots and ladders game written in C++. Reads in a map board from file and the game begins. Here is the description:
