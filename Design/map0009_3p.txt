@@ -1,0 +1,169 @@
+Michael Pace
+COMP 2710
+
+Lab 3: Chutes and Ladders
+														***************************	
+															ANALYSIS - Use cases
+														***************************
+
+**********************************
+   Use Case #1 (Open graph file) 
+**********************************
+1. Brief Description: This use case allows the user to type in the name of the file in which the maze is constructed from
+
+2. Actors
+- User
+
+3. Preconditions
+- User is welcomed with a greeting
+
+4. Basic Flow of events
+- User is welcomed with a greeting
+- User is continually prompted to type in a valid name
+- Graph is constructed from the file information
+- User is given their initial location and the directions they can move
+- Program awaits users choice of direction
+
+5. Alternate Flows
+
+5.1 User types an invalid file name
+- user is continually prompted to enter a valid file name
+
+6. Post-conditions
+- Graph is constructed from the file information
+- User is given their initial location and the directions they can move
+- Program awaits users choice of direction
+
+************************************
+   Use Case #2 (Typing directions) 
+************************************
+1. Brief Description: This use allows user to type the direction they wish to proceed
+
+2. Actors
+- User
+
+3. Preconditions
+- User must have entered a valid file name
+- User is given the current room they are in and the valid directions they can move to
+- User is prompted to type one of these directions
+
+4. Basic Flow of events
+- User is given valid directions to move to
+- User is prompted to type a valid direction
+- User types a valid direction
+
+5. Alternate Flows
+
+5.1 The direction the User typed is invalid
+- Program will continually ask the user to type a valid direction
+
+6. Post-conditions
+- The user is moved to the direction they typed
+- The user is told the current room they are in and the valid directions they can move
+
+***************************************************
+  Use Case #3 (User encounters a chute or ladder) 
+***************************************************
+1. Brief Description: This use allows current User to post a message
+
+2. Actors
+- User
+
+3. Preconditions
+- From its previous location, the user choses to move to a room with a chute/ladder
+
+4. Basic Flow of events
+- User moves to a room with a chute/ladder
+- User is told the room they moved to has a chute/ladder. This means they are forced to move to follow the chute/ladder to a new room. The user is then given the valid directions in which they can proceed from this room.
+- User is prompted to type a direction
+
+5. Alternate Flows
+
+6. Post-conditions
+- User is told the room they moved to has a chute/ladder. This means they are forced to move to follow the chute/ladder to a new room. The user is then given the valid directions in which they can proceed from this room.
+- User is prompted to type a direction
+
+*******************************************
+  Use Case #4 (Reaching the finish point) 
+*******************************************
+1. Brief Description: This use case allows the user to reach the finish point
+
+2. Actors
+- User
+
+3. Preconditions
+- User must select all valid directions in their previous moves
+- User must select the correct path to finish room H6 from A1
+
+4. Basic Flow of events
+- User continually selects valid and correct path choices until it is at H6
+- User is congradulated from reaching the finish point
+- User is told how many steps they took and all of the rooms they visited including the rooms chutes/ladders took them to.
+- Program ends.
+
+5. Alternate Flows
+
+6. Post-conditions
+- User is congradulated from reaching the finish point
+- User is told how many steps they took and all of the rooms they visited including the rooms chutes/ladders took them to
+- Program ends
+																*************
+																	DESIGN  
+																*************
+
+																	System
+
+This class serves as a driver for the game to run. Creates a Game object and runs start().
+
+																	Game
+
+This class is responsible for prompting the user for their input for the file name and the direction they wish to move in. Also, generates the maze from file, creating a Node for each room encountered and ensuring all pointers are set. Keeps track of all moves and print them out to the user once they finish the maze.
+
+- Game(), initializes a new game. This consists of prompting the user for the file name of the graph coordinates, initializing the maze from this information and adding all valid direction choices to vector validChoices
+- bool promptFile(), continually asks user to enter the file name. Will only return true when user has entered a valid file name.
+- void readFile(string fileName), opens file fileName and generates maze from this file.
+- void getPointers(string lineOfText, int index), takes one line of text from file and adds all pointers to the first Node found in this line
+- void generateGraph(string pointerNodes[]), takes an array of strings which a node points to
+- bool isValidChoice(int choice), checks if users direction choice is valid. Returns true if valid, false otherwise
+- void initializeCoordinates(), creates a vector of Node
+- void initializeValidChoices(), adds 'N', 'E', 'S' or 'W' to vector validChoices
+- void start(), this
+
+																	Node
+
+The class is the implemenation of each room encountered in the maze. Has pointers to rooms North, East, South and West from it. These pointers are two way. Additionally, might have a unidrection pointer to either a chute or ladder which if encountered by the user must be taken and added to their moves
+
+- Node(string newname), generates a Node with name set to newname
+- Node(), parameterless constructor for Node. Makes a Node with all parameters and attached node set to null
+- void setNodeName(string newname), sets the name of Node to newname
+- string getNodeName(), returns the name of Node
+- void attachNewNode(Node *newNode, int direction), sets pointer to *newNode in int direction
+- Node *getAttachedNode(int direction), returns pointer in int direction
+- void attachLadderChuteNode(Node *newNode, int ladderOrChute), set pointer to ladder/chute in int direction
+- Node *getLadderChuteNode(int ladderOrChute) returns ladder/chute pointer of current Node 
+
+																**************
+																	TESTING
+																**************
+																
+Creating the maze:
+Test Case #1: Entering a valid file name
+	- User input: graph.txt
+	- Expected output: File valid. Generating maze...
+	Welcome to the Pointer-based Maze!
+Test Case #2: Entering invalid file name
+	- User input: grah.t
+	- Expected output: File not valid. Please try again. Enter file name: 
+
+Entering a direction:
+Test Case #3: Entering a valid direction
+	- User input: N
+	- Expected output: User is moved to a new room. User is given the room they moved to, the valid directions to move and prompted to enter a direction
+
+Entering an invalid direction
+Text Case #4: Typing combinations of directions
+	- User input: Southeast
+	- Expected output: Please type N, S, E or W. Enter a direction:
+Text Case #5: Typing the direction out completely
+	- User input: East
+	- Expected output: Please type N, S, E or W. Enter a direction:

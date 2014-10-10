@@ -1,0 +1,110 @@
+Michael Pace
+COMP 2710
+
+Test Results
+
+***********************************************************
+Test Case #1:	Entering an invalid file
+Test Case #2:	Entering a valid file
+***********************************************************
+
+Michael-Paces-MacBook-Pro:Lab 3 michaelpace$ ./a
+Greetings. Please enter the file: m@p.txt
+This file doesn't exist. Please try again.
+Please enter the file: themapfile.txt
+This file doesn't exist. Please try again.
+Please enter the file: map.txt
+	-----------------------------------------------------
+                           Chutes and Ladders
+	-----------------------------------------------------
+You are currently in room A1. You can go North or East. What is your choice? ^C
+Michael-Paces-MacBook-Pro:Lab 3 michaelpace$ 
+
+*******************************************************************
+Test Case #3:	Entering invalid directions
+Test Case #4:	Typing whole word directions 
+Test Case #5:	Entering valid directions
+*******************************************************************
+
+Michael-Paces-MacBook-Pro:Lab 3 michaelpace$ ./a
+Greetings. Please enter the file: map.txt
+	-----------------------------------------------------
+                           Chutes and Ladders
+	-----------------------------------------------------
+You are currently in room A1. You can go North or East. What is your choice? W
+Please enter only valid room options.
+
+You are currently in room A1. You can go North or East. What is your choice? S
+Please enter only valid room options.
+
+You are currently in room A1. You can go North or East. What is your choice? North
+Please enter if N, E, S or W.
+You are currently in room A1. You can go North or East. What is your choice? East
+Please enter if N, E, S or W.
+You are currently in room A1. You can go North or East. What is your choice? N
+
+You are currently in room A2. You can go East or South. What is your choice? E
+
+You are currently in room B2. You can go North or East or West. What is your choice? ^C
+Michael-Paces-MacBook-Pro:Lab 3 michaelpace$ 
+
+******************************************************
+Test Case #6:	Encountering a ladder/chute
+******************************************************
+
+Michael-Paces-MacBook-Pro:Lab 3 michaelpace$ ./a
+Greetings. Please enter the file: map.txt
+	-----------------------------------------------------
+                           Chutes and Ladders
+	-----------------------------------------------------
+You are currently in room A1. You can go North or East. What is your choice? N
+
+You are currently in room A2. You can go East or South. What is your choice? E
+
+You are currently in room B2. You can go North or East or West. What is your choice? N
+
+You are currently in room B3. You can go North. BUT WAIT...there is a ladder! You take it to room D5. 
+You are currently in room D5. You can go South. What is your choice? S
+
+You are currently in room D4. You can go North or East or South. What is your choice? E
+
+You are currently in room E4. You can go North or East or South or West. What is your choice? E
+
+You are currently in room F4. You can go West. BUT WAIT...there is a ladder! You take it to room D2. 
+You are currently in room D2. You can go East or South or West. What is your choice? ^C
+Michael-Paces-MacBook-Pro:Lab 3 michaelpace$ 
+
+******************************************************
+Test Case #7:	Reaching the finish
+******************************************************
+
+Michael-Paces-MacBook-Pro:Lab 3 michaelpace$ ./a
+Greetings. Please enter the file: map.txt
+	-----------------------------------------------------
+                           Chutes and Ladders
+	-----------------------------------------------------
+You are currently in room A1. You can go North or East. What is your choice? N
+
+You are currently in room A2. You can go East or South. What is your choice? E
+
+You are currently in room B2. You can go North or East or West. What is your choice? E
+
+You are currently in room C2. You can go North or East or South or West. What is your choice? S
+
+You are currently in room C1. You can go North. BUT WAIT...there is a ladder! You take it to room E3. 
+You are currently in room E3. You can go North or East. What is your choice? N
+
+You are currently in room E4. You can go North or East or South or West. What is your choice? N
+
+You are currently in room E5. You can go East or South. What is your choice? E
+
+You are currently in room F5. You can go North or East or West. What is your choice? E
+
+You are currently in room G5. You can go North or East or South or West. What is your choice? N
+
+You are currently in room G6. You can go East. What is your choice? E
+
+Congratulations! You have reached the finish point.
+You took 11 steps.
+The nodes you visited are:  G6 G5 F5 E5 E4 E3 C1 C2 B2 A2 A1.
+Michael-Paces-MacBook-Pro:Lab 3 michaelpace$ 
