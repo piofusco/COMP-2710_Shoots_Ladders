@@ -45,13 +45,13 @@ The Start variable is a pointer that points to the node where the user starts, w
 Graph Configuration
 The configuration of the graph that you will use in the program will be read in from a text file. Each line in the file indicates information on each node, i.e. the name of the node, the links that may exist from that node to another node in the North, East, South and West directions and another possible link for a ladder or chute. If there is no link in a specific direction, then there is an ‘*’ in place of the node name. For example, the first eight lines of the configuration file for the graph above is as follows:
 
-A1 A2 B1 * * * 
+A1 A2 B1 * * *
 B1 * * * A1 * 
 C1 C2 * * * E3
-D1 D2 * * * 
-* E1 E2 F1 * * 
+D1 D2 * * * *
+* E1 E2 F1 * *
 * F1 * * * E1 
-* G1 G2 * * * 
+* * G1 G2 * *  
 * H1 H2 * * * 
 
 In the first line of the configuration file above, the name of the node is A1. It has a pointer to node A2 in the North direction and a pointer to node B1 in the East direction but no link in either the South or West direction and no ladder or chute link. Thus the South, West, and Ladder/Chute pointers are set to NULL.
